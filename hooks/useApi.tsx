@@ -1,30 +1,4 @@
 import { FetchPopulationData } from '@/api';
-// import { useQuery } from '@tanstack/react-query';
-// import { useEffect, useState } from 'react';
-
-// const useApi = () => {
-//   const [index, setIndex] = useState(0);
-//   const response = useQuery({
-//     queryKey: ["DATA_API"], // Unique key for this query
-//     queryFn: FetchPopulationData, // Function that returns the data
-//     staleTime: 1000 * 60 * 5, // Data stays fresh for 5 minutes
-//     retry: 2, // Retry failed requests twice
-//   });
-
-//   useEffect(()=>{
-//     console.log("Index changed to: ", index);
-//   }, [index])
-
-//   const populationData = response.data;
-//   const years = response?.data?.data.map((item) => item.Year).reverse();
-//   const population = response?.data?.data.map((item) => item.Population).reverse();
-//   const isLoading = response.isLoading;
-
-//   return { populationData, years, population, isLoading, index, setIndex };
-// };
-
-// export default useApi;
-
 import { createContext, useContext, useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
@@ -59,10 +33,6 @@ export const ApiProvider = ({ children }: { children: ReactNode }) => {
     staleTime: 1000 * 60 * 5,
     retry: 2,
   });
-
-  useEffect(() => {
-    console.log("Index changed to:", index);
-  }, [index]);
 
   const populationList = response?.data?.data.map((item,index)=>response?.data?.data[index]).reverse();
   const years = response?.data?.data.map((item) => item.Year).reverse();

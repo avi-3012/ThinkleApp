@@ -44,18 +44,14 @@ const ScrollableGraph = ({index}:{index:number}) => {
   }, [index]);
 
   useEffect(() => {
-    // Set a timeout to update debouncedValue after delay
     const timeoutId = setTimeout(() => {
       setIndex(highlightedIndex);
-    }, 1000); // Adjust debounce delay as needed (500ms in this case)
+    }, 1000);
 
-    // Clear the timeout if stateValue changes before the timeout completes
     return () => clearTimeout(timeoutId);
   }, [highlightedIndex]);
 
-  console.log("Loading...", status, years, population);
   if (isLoading || status !== "success" || !(years && population) || (years?.length==0 || population?.length==0)) {
-    console.log("Loading...", status);
     return (
     <View justifyContent="center" alignItems="center" height={220}>
       <ActivityIndicator color={"#ffffff"}/>

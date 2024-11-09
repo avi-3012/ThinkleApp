@@ -92,7 +92,7 @@ export default function TabTwoScreen() {
           </View>
           {
             getYearlyGrowthPercentage(populationList).map((item,index)=>(
-              <View flexDirection="row" justifyContent="space-between" key={populationList[index]?.ID_Nation}>
+              <View flexDirection="row" justifyContent="space-between" key={populationList[index]?.Year}>
                 <Text color={Colors.dark.mutedText}>{populationList[index]?.Year}-{populationList[index+1]?.Year}</Text>
                 <Text color={Colors.dark.progressive}>{item}%</Text>
               </View>

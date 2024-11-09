@@ -1,7 +1,7 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import config from "./../tamagui.config";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SafeAreaView, StatusBar, useColorScheme } from "react-native";
+import { SafeAreaView, StatusBar, useColorScheme, Platform } from "react-native";
 import { Suspense } from "react";
 import { TamaguiProvider, TamaguiProviderProps, Text } from "tamagui";
 import {
@@ -19,7 +19,7 @@ export function Provider({
 }: Omit<TamaguiProviderProps, "config">) {
   const colorScheme = useColorScheme();
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.dark.background }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.dark.background, paddingTop: Platform.OS === 'android' ? 35 : 0 }}>
       <StatusBar barStyle="light-content" />
       <SafeAreaProvider style={{ flex: 1 }}>
         <TamaguiProvider config={config} {...rest}>
