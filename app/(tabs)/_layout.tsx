@@ -4,6 +4,10 @@ import React from 'react';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import HomeIcon from '@/assets/icons/home.svg';
+import HomeIconActive from '@/assets/icons/home_active.svg';
+import ChartIcon from '@/assets/icons/chart_data.svg';
+import ChartIconActive from '@/assets/icons/chart_data_active.svg';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -11,24 +15,34 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors.dark.text,
         headerShown: false,
+        tabBarStyle: {
+          backgroundColor: Colors.dark.background,
+          borderTopColor: Colors.dark.muted,
+          paddingHorizontal: 50,
+          paddingTop: 10,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            focused?<HomeIconActive />:<HomeIcon />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="trends"
         options={{
-          title: 'Explore',
+          title: 'Trends',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            focused?<ChartIconActive />:<ChartIcon />
           ),
         }}
       />
