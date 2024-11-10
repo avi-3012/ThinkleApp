@@ -4,21 +4,33 @@
 
 ## Get started
 
-1. Install dependencies
+1.  Clone git repository
+
+   ```bash
+   git clone https://github.com/avi-3012/ThinkleApp.git
+   ```
+
+2. Change directory to the created folder by running
+
+   ```bash
+   cd ThinkleApp
+   ```
+   
+3. Install dependencies
 
    ```bash
    npm install
    ```
 
-2. Start the server
+3. Start the server
 
    ```bash
     npm start
    ```
-3. Start the app by pressing "i" for iOS or "a" for android
+4. Start the app by pressing "i" for iOS or "a" for android
 
 
-4. If you don't have android/iOS simulator on your machine, head over [here](https://developer.android.com/studio/run/managing-avds) to setup android simulator or [here](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators) to setup iOS simulator. Once done, check your virtual devices by either running this for android
+5. If you don't have android/iOS simulator on your machine, head over [here](https://developer.android.com/studio/run/managing-avds) to setup android simulator or [here](https://developer.apple.com/documentation/safari-developer-tools/installing-xcode-and-simulators) to setup iOS simulator. Once done, check your virtual devices by either running this for android
    ```bash
    emulator -list-avds
    ```
